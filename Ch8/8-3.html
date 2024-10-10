@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>8-3</title>
+        <script>
+            function handleShowHide() {
+                let span = document.getElementsByTagName('span');
+                for(let i = 0; i<span.length; i++) {
+                    if(span[i].style.visibility == 'hidden') {
+                        span[i].style.visibility = 'visible';
+                    } else {
+                        span[i].style.visibility = 'hidden';
+                    }
+                }
+            }
+        </script>  
+    </head>
+    <body>
+        <h3>다음 빈 곳에 숨은 단어?
+            <button onclick="handleShowHide()">show/hide</button>
+        </h3>
+        <hr>
+        <div>
+            <ul>
+                <li>I &#40<span style="visibility: hidden;">love</span>&#41 you.</li>
+                <li>CSS is Cascading &#40<span style="visibility: hidden;">Sheet.</span>&#41</li>
+                <li>응답하라 &#40<span style="visibility: hidden;">1988.</span>&#41</li>
+
+            </ul>
+        </div>
+
+    </body>
+</html>

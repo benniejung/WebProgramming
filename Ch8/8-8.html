@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>8-8</title>
+        <script>
+            let widthScale = 2;
+            function transform() {
+                let img = document.getElementById('img');
+                //img.style.transform = "scale(2,1)"; // 가로 길이를 2배로 확장하고, 세로 길이는 그대로
+                img.style.transform = `scale(${widthScale}, 1)`;
+                widthScale += 1;
+            }
+        </script>
+    </head>
+    <body>
+        <h3>클릭하면 2,3,4배로 옆으로 늘어납니다.<h3>
+        <hr>
+        <div>
+            <img id="img" src="images/character.jpg" width="200px" height="200px" onclick="transform()">
+        </div>
+    </body>
+</html>
