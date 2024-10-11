@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>9장 9번</title>
+
+        <style>
+            .div {
+                position: absolute;
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <h1>아이템에 마우스를 올리면 설명 입력</h1>
+        <hr>
+        <p>여름 방학 떄 하고 싶은 것들</p>
+        <ol>
+            <li>자전거로 대학민국 일주</li>
+            <li>책 10권 읽기</li>
+            <li>철인 3종 경기 준비</li>
+            <li>자바스크립트 정복</li>
+        </ol>
+
+        <div class="div">빨간 자전거를 타고 서울, 대전, 인천을 거쳐 달린다</div>
+        <div class="div">한달에 5권씩 읽기</div>
+
+        
+        <script>
+            let lists = document.getElementsByTagName('li');
+            let divTags = document.getElementsByTagName('div');
+            for(let i = 0; i<lists.length; i++) {
+                lists[i].onmouseover = function(e) {
+                    console.log(e);
+                    divTags[i].style.left = e.clientX + 'px';
+                    divTags[i].style.top = e.clientY + 'px';
+                    divTags[i].style.backgroundColor = 'lightblue';
+                    divTags[i].style.visibility = 'visible';
+                }
+                lists[i].onmouseout = function(e) {
+                    divTags[i].style.visibility = 'hidden';
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>9장 5번</title>
+
+    </head>
+    <body id="body">
+        <h1>바탕 아무 곳에나 더블 클릭</h1>
+        <hr>
+        <p>바탕 아무 곳이나 더블클릭하면 배경색이 랜덤하게 변합니다.</p>
+        
+        <script>
+        
+            document.body.addEventListener('dblclick', function() {
+                let r = Math.floor(Math.random() * 255) +1;
+                let g = Math.floor(Math.random() * 255) +1;
+                let b = Math.floor(Math.random() * 255) +1; 
+                document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            });
+        
+        </script>
+    </body>
+</html>

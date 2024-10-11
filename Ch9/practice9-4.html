@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>9장 4번</title>
+
+    </head>
+    <body id="body">
+        <h1>이미지 커서 만들기</h1>
+        <hr>
+        <p>마우스를 움직이면 이미지로 만든 커서가 마우스를 따라 다닙니다.</p>
+        <div id="img-cursor" style="position: absolute;" >
+            <img src="images//character.jpg" width="100px" height="100px">
+        </div>
+        <script>
+            let imgCursor = document.getElementById('img-cursor');
+
+            window.onmousemove = mouseMove;
+
+            function mouseMove(e) {
+                console.log(e);
+                let x = e.clientX;
+                let y = e.clientY;
+                imgCursor.style.left = x + 'px';
+                imgCursor.style.top = y + 'px';
+            }
+        
+        </script>
+    </body>
+</html>

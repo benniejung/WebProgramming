@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>9장 10번</title>
+    </head>
+    <body>
+        <h2>계산기 만들기</h2>
+        <hr>
+        <form>
+            <input id="input" type="text" style="width: 290px; height: 20px;">
+        </form>
+        <table>
+            <tr>
+                <td><button style="width: 70px; height: 25px;" onclick="handleBack()">BACK</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="deleteAll()">CE</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="deleteAll()">C</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="calculate()">=</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('7')">7</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('8')">8</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('9')">9</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('4')">4</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('5')">5</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('6')">6</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('1')">1</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('2')">2</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('3')">3</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('0')">0</button></td>
+                <td><button style="width: 70px; height: 25px;" onclick="inputExp('+')">+</button></td>
+                <td><button style="width: 70px; height: 25px;">NONE</button></td>
+                <td><button style="width: 70px; height: 25px;">NONE</button></td>
+            </tr>
+        </table>
+        <script>
+            let input = document.getElementById('input');
+            input.value = '0';
+            function inputExp(expression) {
+                if(input.value == '0') {
+                    input.value = expression;
+                } else {
+                    input.value += expression;
+                }
+            }
+            function handleBack() {
+                const endIndex = input.value.length;
+                //input.value.charAt(endIndex -1) = '';
+                input.value = input.value.substring(0,endIndex-1);
+            }
+
+            function deleteAll() {
+                input.value = '0';
+            }
+            function calculate() {
+                let result = eval(input.value);
+                input.value = result;
+            }
+
+        </script>
+
+    </body>
+</html>

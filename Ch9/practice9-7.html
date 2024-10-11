@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>9장 7번</title>
+
+</head>
+
+<body id="body">
+    <h1>span 태그에만 onmouseover/onmouseout</h1>
+    <hr>
+    <p>span 태그에 대해서만 마우스가 올라올 때 밑줄이 그어지고 <span>마우스</span>가 내려갈 때 밑줄이 사라지도록 <span>자바스크립트 코드</span>를 작성한다.</p>
+
+    <script>
+        let spanTags = document.getElementsByTagName('span');
+        for (let i = 0; i < spanTags.length; i++) {
+            spanTags[i].addEventListener('mouseover', function () {
+                spanTags[i].style.textDecoration = 'underline';
+            });
+            spanTags[i].addEventListener('mouseout', function () {
+                spanTags[i].style.textDecoration = 'none';
+            });
+        }
+        function createUnderline() {
+            const span = document.getElementById('span');
+            span.style.textDecoration = 'underline';
+        }
+
+        /* 다른 방법 */
+        window.onmouseover = function (e) {
+            if (e.target.tagName.toLowerCase() != "span") return;
+            e.target.style.textDecoration = "underline";
+        }
+        window.onmouseout = function (e) {
+            if (e.target.tagName.toLowerCase() != "span") return;
+            e.target.style.textDecoration = "none";
+        }
+
+    </script>
+</body>
+
+</html>
