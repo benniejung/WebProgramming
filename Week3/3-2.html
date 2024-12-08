@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        ul,
+        ol {
+            padding-left: 20px;
+        }
+
+        ul li,
+        ol li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .input-section {
+            margin-top: 20px;
+        }
+
+        .input-section h3 {
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .input-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .combo-box {
+            margin-top: 10px;
+        }
+
+        .check-box-group {
+            display: flex;
+            gap: 15px;
+            /* 항목 간 간격 */
+        }
+
+        .inputType {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>
+            <strong>Week 1</strong>
+            <ul>
+                <li><a href="#">강의 개요</a></li>
+                <li><a href="#">웹의 개념과 구조</a></li>
+                <li><a href="#">Visual Studio Code</a>
+                    <ol>
+                        <li>설치</li>
+                        <li>유용한 plug-ins
+                            <ul>
+                                <li>Material Theme</li>
+                                <li>Prettier</li>
+                                <li>indent-rainbow</li>
+                                <li>Auto Rename Tag</li>
+                                <li>HTML CSS Support</li>
+                                <li>Live Server</li>
+                            </ul>
+                        </li>
+                        <li>EMMET</li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Week 2 -->
+        <li>
+            <strong>Week 2: <a href="#">HTML Review</a></strong>
+            <div class="input-section">
+                <h3>Input Types</h3>
+
+                <!-- Check Box -->
+                <div class="inputType">Check Box</div>
+                <div class="check-box-group">
+                    <label><input type="checkbox" name="checkbox" value="HTML5"> HTML5</label>
+                    <label><input type="checkbox" name="checkbox" value="CSS3"> CSS3</label>
+                    <label><input type="checkbox" name="checkbox" value="JavaScript"> JavaScript</label>
+                </div>
+
+
+                <!-- Radio Button -->
+                <div class="inputType">Radio Button</div>
+                <label><input type="radio" name="radio" value="HTML5"> HTML5</label>
+                <label><input type="radio" name="radio" value="CSS3"> CSS3</label>
+                <label><input type="radio" name="radio" value="JavaScript"> JavaScript</label>
+
+                <!-- Combo Box -->
+                <div class="inputType">Combo Box</div>
+                <div class="combo-box">
+                    <select name="dropdown">
+                        <option value="HTML5">HTML5</option>
+                        <option value="CSS3">CSS3</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+    </ol>
+</body>
+
+</html>
