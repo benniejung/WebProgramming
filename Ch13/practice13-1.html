@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 1번</title>
+    <script>
+        // 비디오 제어 함수
+        function playVideo() {
+            const video = document.getElementById('myVideo');
+            video.play();
+        }
+
+        function pauseVideo() {
+            const video = document.getElementById('myVideo');
+            video.pause();
+        }
+
+        function replayVideo() {
+            const video = document.getElementById('myVideo');
+            video.load(); // reloading this video
+            video.play();
+        }
+        function setVolume(type) {
+            const video = document.getElementById('myVideo');
+            if (type === 'down') {
+                if (video.volume <= 0.1) video.volume = 0;
+                else video.volume -= 0.1; // 음량 0.1 감소
+            } else {
+                if(video.volume >= 0.9) video.volume = 1.0;		
+                else video.volume += 0.1; // 음량 0.1 증가
+            }
+            console.log(`현재 볼륨: ${video.volume}`);
+        }
+
+
+        function toggleMute() {
+            const video = document.getElementById('myVideo');
+            video.muted = !video.muted; // 음소거 상태 토글
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>자바스크립트로 비디오 제어</h2>
+    <hr>
+    <video id="myVideo" width="600" controls>
+        <source src="media/고모프 시연영상.mp4" type="video/mp4">
+        브라우저가 video 태그를 지원하지 않습니다.
+    </video>
+
+    <!-- 비디오 제어 버튼 -->
+    <div>
+        <button onclick="playVideo()">play</button>
+        <button onclick="pauseVideo()">pause</button>
+        <button onclick="replayVideo()">replay</button>
+        <button onclick="setVolume('down')">vol-</button>
+        <button onclick="setVolume('up')">vol+</button>
+        <button onclick="toggleMute()">mute on/off</button>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>12장 4번 - 저장페이지</title>
+    <script>
+        let formattedDate = null;
+        function setTodayDate() {
+            // 페이지 로드 시 오늘 날짜를 설정
+            const today = new Date(); // 현재 날짜 가져오기
+            const year = today.getFullYear(); // 연도
+            const month = today.getMonth() + 1;
+            const date = today.getDate();
+
+            formattedDate = `${year}.${month}.${date}`;
+            document.getElementById('todayDate').textContent = formattedDate;
+        }
+
+        function saveToLocalStorage() {
+            const diary = document.getElementById('diary').value;
+
+            if (formattedDate && diary) {
+                localStorage.setItem(formattedDate, diary);
+            } else {
+                alert("일기를 작성해주세요");
+            }
+        }
+        function print() {
+            window.open("practice12-4-2.html", "_blank");
+        }
+
+        // 페이지 로드 시 날짜 설정
+        window.onload = setTodayDate;
+    </script>
+</head>
+
+<body id="body">
+    <h2>일기쓰기</h2>
+    <hr>
+    <div>오늘 <span id="todayDate"></span> </div>
+    <textarea id="diary"></textarea>
+    <div>
+        <button type="button" onclick="saveToLocalStorage()">저장</button>
+        <button type="button" onclick="print()">보기</button>
+    </div>
+</body>
+
+</html>

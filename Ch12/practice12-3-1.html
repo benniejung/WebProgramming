@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>12장 3번 - 저장페이지</title>
+    <script>
+        function saveToLocalStorage() {
+            const title = document.getElementById('title').value;
+            const memo = document.getElementById('memo').value;
+
+            if (title && memo) {
+                localStorage.setItem(title, memo);
+            } else {
+                alert("품목명과 개수를 모두 입력해주세요.");
+            }
+        }
+        function print() {
+            window.open("practice12-3-2.html", "_blank");
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>포스트잇</h2>
+    <hr>
+    <div>제목 <input type="text" id="title"></div>
+    <div>메모입력</div>
+    <textarea id="memo"></textarea>
+    <div>
+        <button type="button" onclick="saveToLocalStorage()">저장</button>
+        <button type="button" onclick="print()">보기</button>
+    </div>
+</body>
+
+</html>

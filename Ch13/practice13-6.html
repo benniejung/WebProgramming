@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 6번</title>
+    <script>
+        let worker;
+
+        // 페이지 로드 시 워커 초기화
+        window.onload = function () {
+            // 워커 생성
+            worker = new Worker("6-worker.js");
+
+            // 워커에서 메시지 수신
+            worker.onmessage = function (e) {
+                let resultArea = document.getElementById("result");
+                resultArea.value = e.data;
+            };
+        };
+
+        // 점수 입력 함수
+        function calculate() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            // 입력값 검증
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("유효한 숫자를 입력하세요.");
+                return;
+            }
+
+            // 워커로 두 숫자를 배열 형태로 전송
+            worker.postMessage([num1, num2]);
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>곱셈하기</h2>
+    <hr>
+    <div>
+        <input type="text" id="num1">
+        <span>x</span>
+        <input type="text" id="num2">
+        <button type="button" onclick="calculate()">곱하기</button>
+        <input type="text" id="result">
+    </div>
+
+</body>
+
+</html>

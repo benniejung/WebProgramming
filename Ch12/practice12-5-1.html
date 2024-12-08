@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>12장 5번 - 저장페이지</title>
+    <script>
+        function store(key, value) {
+             // 로컬 스토리지에 저장
+             localStorage.setItem(key, value);
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>여행 갑시다</h2>
+    <hr>
+    <div>
+        <div>
+            <h3>도시를 선택하세요</h3>
+            <select id="city" onchange="store('city', this.value)">
+                <option value="">-- 선택 --</option>
+                <option value="서울">서울</option>
+                <option value="도쿄">도쿄</option>
+                <option value="뉴욕">뉴욕</option>
+            </select>
+            
+        </div>
+        <div>
+            <h3>음식을 선택하세요</h3>
+            <select id="food" onchange="store('food', this.value)">
+                <option value="">-- 선택 --</option>
+                <option value="김치">김치</option>
+                <option value="초밥">초밥</option>
+                <option value="피자">피자</option>
+            </select>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 3번</title>
+    <script>
+        // 오디오가 끝났을 때 호출될 함수
+        function onAudioEnded() {
+            const shouldReplay = confirm("다시 연주할까요?");
+            if (shouldReplay) {
+                const audio = document.getElementById('myAudio');
+                audio.currentTime = 0; // 오디오를 처음으로 이동
+                audio.play(); // 재생
+            }
+        }
+        // 이벤트 리스너 등록
+        window.onload = function () {
+            const audio = document.getElementById('myAudio');
+            audio.addEventListener('ended', onAudioEnded); // 재생 종료 시 이벤트 호출
+        };
+    </script>
+</head>
+
+<body id="body">
+    <h2>애국가 연주</h2>
+    <hr>
+    <audio id="myAudio" width="600" controls>
+        <source src="media/music_lilac.mp3" type="audio/mp3">
+        브라우저가 audio 태그를 지원하지 않습니다.
+    </audio>
+
+
+</body>
+
+</html>

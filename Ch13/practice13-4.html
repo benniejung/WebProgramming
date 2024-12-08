@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 3번</title>
+    <script>
+        let audioQueue = []; // 재생할 곡 리스트
+        let currentIndex = 0; // 현재 재생 중인 곡 인덱스
+        // 체크된 곡들을 가져오는 함수
+        function getSelectedTracks() {
+            audioQueue = []; // 기존 목록 초기화
+            const checkboxes = document.querySelectorAll('input[name="track"]:checked');
+
+            checkboxes.forEach(checkbox => {
+                audioQueue.push(checkbox.value); // 체크된 곡의 경로 추가
+            });
+            if (audioQueue.length === 0) {
+                alert("재생할 곡을 선택해주세요.");
+            } else {
+                currentIndex = 0; // 인덱스 초기화
+                playAudio();
+            }
+
+        }
+
+        // 오디오 재생 함수
+        function playAudio() {
+            if (currentIndex < audioQueue.length) {
+                const audio = document.getElementById('myAudio');
+                audio.src = audioQueue[currentIndex]; // 현재 곡으로 설정
+                audio.play();
+
+                // 다음 곡 재생 설정
+                audio.onended = function () {
+                    currentIndex++;
+                    playAudio(); // 다음 곡 재생
+                };
+            } else {
+                // 모든 곡 재생 완료 시 메시지
+                const shouldReplay = confirm("모든 곡이 끝났습니다. 다시 재생할까요?");
+                if (shouldReplay) {
+                    currentIndex = 0; // 처음으로 이동
+                    playAudio(); // 다시 재생
+                }
+            }
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>오디오 재생</h2>
+    <div>듣고 싶은 곡은 선택하고 시작 버튼을 누르면 연속하여 자동 연주합니다.</div>
+    <hr>
+    <audio id="myAudio" width="600" controls>
+        <source src="media/music_lilac.mp3" type="audio/mp3">
+        브라우저가 audio 태그를 지원하지 않습니다.
+    </audio>
+    <!-- 곡 선택 체크박스 -->
+    <div>
+        <label><input type="checkbox" name="track" value="media/music_lilac.mp3"> Lilac</label><br>
+        <label><input type="checkbox" name="track" value="media/music_butterfly.mp3"> Butterfly</label><br>
+        <label><input type="checkbox" name="track" value="media/music_dream.mp3"> Dream</label>
+    </div>
+    <!-- 버튼 -->
+    <button onclick="getSelectedTracks(); playAudio();">연주시작</button>
+
+
+</body>
+
+</html>

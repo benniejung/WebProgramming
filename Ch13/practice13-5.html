@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 5번</title>
+    <script>
+        let worker;
+
+        // 페이지 로드 시 워커 초기화
+        window.onload = function () {
+            // 워커 생성
+            worker = new Worker("5-worker.js");
+
+            // 워커에서 메시지 수신
+            worker.onmessage = function (e) {
+                let msgArea = document.getElementById("msg");
+                msgArea.innerHTML += e.data + "<br>";
+            };
+        };
+
+        // 점수 입력 함수
+        function submitScore() {
+            const score = parseInt(prompt("점수를 숫자로 입력하세요:"), 10);
+
+            // 점수 유효성 확인
+            if (isNaN(score) || score < 0 || score > 100) {
+                alert("유효한 점수를 입력하세요.");
+                return;
+            }
+
+            // 워커로 점수 전송
+            worker.postMessage(score);
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>학점 매기기</h2>
+    <div>듣고 싶은 곡은 선택하고 시작 버튼을 누르면 연속하여 자동 연주합니다.</div>
+    <hr>
+    <!-- 버튼 -->
+    <button onclick="submitScore()">점수입력</button>
+    <div id="msg"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>13장 2번</title>
+    <style>
+        table {
+            width: 50%;
+            border: 1px solid #ddd;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // 비디오 제어 함수
+        function playVideo() {
+            const audio = document.getElementById('myAudio');
+            audio.play();
+        }
+
+        function pauseVideo() {
+            const audio = document.getElementById('myAudio');
+            audio.pause();
+        }
+    </script>
+</head>
+
+<body id="body">
+    <h2>오디오 재생</h2>
+    <hr>
+    <audio id="myAudio" width="600" controls>
+        <source src="media/music_lilac.mp3" type="audio/mp3">
+        브라우저가 audio 태그를 지원하지 않습니다.
+    </audio>
+    <!-- 비디오 제어 버튼 -->
+    <div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>LiLac</td>
+                    <td><button onclick="playAudio()">재생</button></td>
+                    <td><button onclick="pauseAudio()">중지</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>

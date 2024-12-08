@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=‘utf-8’>
+    <title>12장 5번 - 보여주기페이지</title>
+    <script>
+        function displaySelections() {
+            // 로컬 스토리지에서 값 가져오기
+            const city = localStorage.getItem("city");
+            const food = localStorage.getItem("food");
+
+            // 값 검증 및 표시
+            if (city) {
+                document.getElementById("cityDisplay").textContent = `City = ${city}`;
+            } else {
+                document.getElementById("cityDisplay").textContent = "City = 선택된 항목이 없습니다.";
+            }
+
+            if (food) {
+                document.getElementById("foodDisplay").textContent = `Food = ${food}`;
+            } else {
+                document.getElementById("foodDisplay").textContent = "Food = 선택된 항목이 없습니다.";
+            }
+        }
+        // 페이지 로드 시 실행
+        window.onload = displaySelections;
+
+    </script>
+</head>
+
+<body id="body">
+    <h2>선택한 도시와 음식 보여주기</h2>
+    <hr>
+    <div>
+        <div id="cityDisplay">city = </div>
+        <div id="foodDisplay">food = </div>
+    </div>
+</body>
+
+</html>
