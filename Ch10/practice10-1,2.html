@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=‘utf-8’>
+        <title>10장 1번, 2번</title>
+    </head>
+    <body onload="openNewWin()">
+        <h1>HTML5</h1>
+        <p>HTML5를 학습하는 사이트입니다.</p>
+        <script>
+            function openNewWin() {
+                let win = window.open("", null, "left=500, top=400, width=500, height=300");
+                win.document.write("접속 감사합니다!<br>");
+                win.document.write("열심히 하세요!");
+                win.document.title = '환영';
+                win.document.body.style.backgroundColor='yellowgreen';
+            }
+
+        </script>
+
+
+    </body>
+</html>
