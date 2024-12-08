@@ -72,6 +72,14 @@ WebProgramming/
 │   ├── practice13-4.html # 프로젝트 실습 13-4
 │   ├── practice13-5.html # 프로젝트 실습 13-5
 │   ├── practice13-6.html # 프로젝트 실습 13-6
+├── NodeJS/        # NodeJS
+│   └── sync1.js
+│   └── sync2.js
+│   └── async.js
+│   └── event1.js
+│   └── event2.js
+│   └── single-webworker1.js
+│   └── single-webworker2.js
 └── README.md       # 리포지토리 설명 파일
 ```
 
@@ -121,3 +129,6 @@ WebProgramming/
 
 ### Ch13: 오디오, 비디오, 웹 워커
 - **practice13-1.html ~ practice13-6.html**: 오디오, 비디오 및 웹 워커를 활용한 프로젝트 실습.
+  
+### NodeJS : NodeJS 실습
+- NodeJS 기초 실습
